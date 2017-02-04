@@ -28,6 +28,15 @@ HOME_OWNERSHIP_CHOICES = (
     ("OTHER", "その他"),
 )
 
+GRADE_CHOICES = {
+    ("A", "A"),
+    ("B", "B"),
+    ("C", "C"),
+    ("D", "D"),
+    ("E", "E"),
+    ("F", "F"),
+    ("G", "G"),
+}
 
 class ExaminationForm(forms.Form):
     loan_amnt = forms.DecimalField(
@@ -61,6 +70,12 @@ class ExaminationForm(forms.Form):
         required=True,
         widget=forms.Select()
     )
+    grade = forms.ChoiceField(
+        label="グレード",
+        choices=GRADE_CHOICES,
+        required=True,
+        widget=forms.Select()
+    )
 
     def predict_loan_status(self):
         model_id = getattr(settings, "AMAZON_ML_MODEL_ID")
@@ -75,6 +90,7 @@ class ExaminationForm(forms.Form):
                 "emp_length": self.cleaned_data['emp_length'],
                 "annual_inc": str(self.cleaned_data['annual_inc']),
                 "home_ownership": self.cleaned_data['home_ownership'],
+                "grade": self.cleaned_data['grade']
             }
         }
         response = requests.post(api_gateway_endpoint, data=json.dumps(payload))
