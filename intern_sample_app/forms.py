@@ -70,6 +70,15 @@ class ExaminationForm(forms.Form):
         required=True,
         widget=forms.Select()
     )
+    int_rate = forms.DecimalField(
+        label="ローン金利(％)",
+        min_value=0,
+        max_value=100,
+        max_digits=4,
+        decimal_place=2,
+        required=True,
+        widget=forms.NumberInput()
+    )
     grade = forms.ChoiceField(
         label="グレード",
         choices=GRADE_CHOICES,
@@ -90,6 +99,7 @@ class ExaminationForm(forms.Form):
                 "emp_length": self.cleaned_data['emp_length'],
                 "annual_inc": str(self.cleaned_data['annual_inc']),
                 "home_ownership": self.cleaned_data['home_ownership'],
+                "int_rate": str(self.cleaned_data['int_rate']),
                 "grade": self.cleaned_data['grade']
             }
         }
