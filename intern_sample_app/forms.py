@@ -75,7 +75,7 @@ class ExaminationForm(forms.Form):
         min_value=0,
         max_value=100,
         max_digits=4,
-        decimal_place=2,
+        decimal_places=2,
         required=True,
         widget=forms.NumberInput()
     )
