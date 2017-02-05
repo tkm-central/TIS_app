@@ -6,13 +6,18 @@
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <p>簡易審査フォーム</p>
+          <p>審査フォーム（業者様向け）</p>
         </div>
         <div class="panel-body">
-          {% if predictedLabel and predictedScores0 < 0.1 %}
-          <div class="alert alert-success">この内容であれば問題なく融資可能です。ぜひ店頭までお越しください。</div>
-          {% elif predictedLabel and predictedScores0 >= 0.1 %}
-          <div class="alert alert-info">この情報だけでは融資可否を判断できませんでした。詳細な審査をご希望の方は店頭までお越しください。</div>
+          {% if predictedLabel and predictedLabel == "1"}
+          <div class="alert alert-success">信頼のおけるお客様です。融資して問題ありません。</div>
+          {% elif predictedLabel and predictedLabel == "0"}
+            {% if predictedLabel and predictedScores0 >= 0.2 %}
+            <div class="alert alert-warning">この情報だけでは融資可否を判断できません。</div>
+            {% endif %}
+            {% if predictedLabel and predictedScores0 < 0.2 %}
+            <div class="alert alert-warning">大いに問題のあるお客様です。</div>
+            {% endif %}            
           {% endif %}
           <form class="form-horizontal" role="form" action="{% url 'exam' %}" method="post">
             {% csrf_token %}
