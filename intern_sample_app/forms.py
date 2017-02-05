@@ -28,7 +28,7 @@ HOME_OWNERSHIP_CHOICES = (
     ("OTHER", "その他"),
 )
 
-GRADE_CHOICES = {
+GRADE_CHOICES = (
     ("A", "A"),
     ("B", "B"),
     ("C", "C"),
@@ -36,10 +36,10 @@ GRADE_CHOICES = {
     ("E", "E"),
     ("F", "F"),
     ("G", "G"),
-}
+)
 
 
-SUB_GRADE_CHOICES = {
+SUB_GRADE_CHOICES = (
     ("A1", "A1"),
     ("A2", "A2"),
     ("A3", "A3"),
@@ -75,7 +75,7 @@ SUB_GRADE_CHOICES = {
     ("G3", "G3"),
     ("G4", "G4"),
     ("G5", "G5"),
-}
+)
 
 class ExaminationForm(forms.Form):
     loan_amnt = forms.DecimalField(
