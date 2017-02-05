@@ -12,7 +12,7 @@
           {% if predictedLabel and predictedLabel == "1" %}
           <div class="alert alert-success">信頼のおけるお客様です。融資して問題ありません。</div>
           {% elif predictedScores0 >= 0.45 %}
-          <div class="alert alert-warning">この情報だけでは融資可否を判断できません。</div>
+          <div class="alert alert-warning">問題がある可能性があります。</div>
           {% elif predictedScores0 < 0.45 %}
           <div class="alert alert-danger">大いに問題のあるお客様です。</div>
           {% endif %}

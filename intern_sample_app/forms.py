@@ -190,7 +190,30 @@ class ExaminationForm(forms.Form):
     required=False,
     widget=forms.NumberInput()
     )
-
+    avg_cur_bal = forms.DecimalField(
+    label="avg_cur_bal(0-8125-419840)",
+    min_value=0,
+    required=False,
+    widget=forms.NumberInput()
+    )
+    tot_cur_bal = forms.DecimalField(
+    label="tot_cur_bal(0-90531-2697239)",
+    min_value=0,
+    required=False,
+    widget=forms.NumberInput()
+    )
+    installment = forms.DecimalField(
+    label="installment(30.12-395.55-1536.95)",
+    min_value=0,
+    required=False,
+    widget=forms.NumberInput()
+    )
+    tot_hi_cred_lim = forms.DecimalField(
+    label="term(36 or 60)",
+    min_value=0,
+    required=False,
+    widget=forms.NumberInput()
+    )
 
     def predict_loan_status(self):
         model_id = getattr(settings, "AMAZON_ML_MODEL_ID")
@@ -217,6 +240,10 @@ class ExaminationForm(forms.Form):
                 "total_rev_hi_lim": str(self.cleaned_data['total_rev_hi_lim']),
                 "dti": str(self.cleaned_data['dti']),
                 "tot_hi_cred_lim": str(self.cleaned_data['tot_hi_cred_lim']),
+                "avg_cur_bal": str(self.cleaned_data['avg_cur_bal']),
+                "tot_cur_bal": str(self.cleaned_data['tot_cur_bal']),
+                "installment": str(self.cleaned_data['installment']),
+                "term": str(self.cleaned_data['term']),
             }
         }
         response = requests.post(api_gateway_endpoint, data=json.dumps(payload))
