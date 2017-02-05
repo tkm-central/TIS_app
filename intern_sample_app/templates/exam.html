@@ -11,13 +11,10 @@
         <div class="panel-body">
           {% if predictedLabel and predictedLabel == "1"}
           <div class="alert alert-success">信頼のおけるお客様です。融資して問題ありません。</div>
-          {% elif predictedLabel and predictedLabel == "0"}
-            {% if predictedLabel and predictedScores0 >= 0.2 %}
-            <div class="alert alert-warning">この情報だけでは融資可否を判断できません。</div>
-            {% endif %}
-            {% if predictedLabel and predictedScores0 < 0.2 %}
-            <div class="alert alert-danger">大いに問題のあるお客様です。</div>
-            {% endif %}            
+          {% elif predictedScores0 >= 0.3 %}
+          <div class="alert alert-warning">この情報だけでは融資可否を判断できません。</div>
+          {% elif predictedScores0 < 0.3 %}
+          <div class="alert alert-danger">大いに問題のあるお客様です。</div>
           {% endif %}
           <form class="form-horizontal" role="form" action="{% url 'exam' %}" method="post">
             {% csrf_token %}

@@ -20,4 +20,6 @@ class ExaminationView(FormView):
         context['predictedLabel'] = result['predictedLabel']
         if result['predictedLabel']=="0":
             context['predictedScores0'] = result['predictedScores']["0"]
+        else:
+            context['predictedScores0'] = 0
         return self.render_to_response(context)
