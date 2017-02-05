@@ -208,7 +208,7 @@ class ExaminationForm(forms.Form):
     required=False,
     widget=forms.NumberInput()
     )
-    tot_hi_cred_lim = forms.DecimalField(
+    term = forms.DecimalField(
     label="term(36 or 60)",
     min_value=0,
     required=False,
