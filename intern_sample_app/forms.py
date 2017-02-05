@@ -130,14 +130,26 @@ class ExaminationForm(forms.Form):
         required=False,
         widget=forms.Select()
     )
-    bc_open_to_buy = forms.DecimalField(
-    label="bc_open_to_buy(0-5437-454843)",
+    all_util = forms.DecimalField(
+    label="与信限度バランス(0-62-161)",
     min_value=0,
     required=False,
     widget=forms.NumberInput()
     )
-    all_util = forms.DecimalField(
-    label="all_util(0-62-161)",
+    mort_acc = forms.DecimalField(
+    label="住宅ローン口座数(0-1-37)",
+    min_value=0,
+    required=False,
+    widget=forms.NumberInput()
+    )
+    total_bc_limit = forms.DecimalField(
+    label="貸付限度総額(0-15400-474600)",
+    min_value=0,
+    required=False,
+    widget=forms.NumberInput()
+    )
+    bc_open_to_buy = forms.DecimalField(
+    label="bc_open_to_buy(0-5437-454843)",
     min_value=0,
     required=False,
     widget=forms.NumberInput()
@@ -150,24 +162,6 @@ class ExaminationForm(forms.Form):
     )
     bc_util = forms.DecimalField(
     label="bc_util(0-57.4-189.8)",
-    min_value=0,
-    required=False,
-    widget=forms.NumberInput()
-    )
-    mort_acc = forms.DecimalField(
-    label="mort_acc(0-1-37)",
-    min_value=0,
-    required=False,
-    widget=forms.NumberInput()
-    )
-    total_bc_limit = forms.DecimalField(
-    label="total_bc_limit(0-15400-474600)",
-    min_value=0,
-    required=False,
-    widget=forms.NumberInput()
-    )
-    percent_bc_gt_75 = forms.DecimalField(
-    label="percent_bc_gt_75(0-33.3-100)",
     min_value=0,
     required=False,
     widget=forms.NumberInput()
