@@ -127,67 +127,67 @@ class ExaminationForm(forms.Form):
     sub_grade = forms.ChoiceField(
         label="サブグレード",
         choices=SUB_GRADE_CHOICES,
-        required=True,
+        required=False,
         widget=forms.Select()
     )
     bc_open_to_buy = forms.DecimalField(
     label="bc_open_to_buy(0-5437-454843)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     all_util = forms.DecimalField(
     label="all_util(0-62-161)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     percent_bc_gt_75 = forms.DecimalField(
     label="percent_bc_gt_75(0-33.3-100)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     bc_util = forms.DecimalField(
     label="bc_util(0-57.4-189.8)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     mort_acc = forms.DecimalField(
     label="mort_acc(0-1-37)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     total_bc_limit = forms.DecimalField(
     label="total_bc_limit(0-15400-474600)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     percent_bc_gt_75 = forms.DecimalField(
     label="percent_bc_gt_75(0-33.3-100)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     total_rev_hi_lim = forms.DecimalField(
     label="total_rev_hi_lim(0-25200-1070650)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     dti = forms.DecimalField(
     label="dit(0-18.21-39.99)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
     tot_hi_cred_lim = forms.DecimalField(
     label="tot_hi_cred_lim(2500-123513-9999999)",
     min_value=0,
-    required=True,
+    required=False,
     widget=forms.NumberInput()
     )
 
