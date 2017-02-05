@@ -16,7 +16,7 @@
             <div class="alert alert-warning">この情報だけでは融資可否を判断できません。</div>
             {% endif %}
             {% if predictedLabel and predictedScores0 < 0.2 %}
-            <div class="alert alert-warning">大いに問題のあるお客様です。</div>
+            <div class="alert alert-danger">大いに問題のあるお客様です。</div>
             {% endif %}            
           {% endif %}
           <form class="form-horizontal" role="form" action="{% url 'exam' %}" method="post">

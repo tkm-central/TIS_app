@@ -18,5 +18,6 @@ class ExaminationView(FormView):
         context = self.get_context_data(**kwargs)
         result = form.predict_loan_status()
         context['predictedLabel'] = result['predictedLabel']
-        context['predictedScores0'] = result['predictedScores']["0"]
+        if result['predictedLabel']=="0":
+            context['predictedScores0'] = result['predictedScores']["0"]
         return self.render_to_response(context)
