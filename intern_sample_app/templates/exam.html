@@ -9,7 +9,7 @@
           <p>審査フォーム（業者様向け）</p>
         </div>
         <div class="panel-body">
-          {% if predictedLabel and predictedLabel == "1"}
+          {% if predictedLabel and predictedLabel == "1" %}
           <div class="alert alert-success">信頼のおけるお客様です。融資して問題ありません。</div>
           {% elif predictedScores0 >= 0.3 %}
           <div class="alert alert-warning">この情報だけでは融資可否を判断できません。</div>
